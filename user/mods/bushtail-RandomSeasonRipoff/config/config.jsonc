@@ -1,0 +1,12 @@
+{
+  /**
+  Weightings of all the seasons. 
+  */
+  "Summer": 15,
+  "Autumn": 15,
+  "Winter": 15,
+  "Spring": 15,
+  "LateAutumn": 15,
+  "EarlySpring": 15,
+  "Storm": 10
+}

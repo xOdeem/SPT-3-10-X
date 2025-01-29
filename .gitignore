@@ -1,0 +1,56 @@
+/*
+
+#Base files
+!.gitignore
+!.gitattributes
+!README.md
+
+#Unneeded stuff
+**/.DS_Store
+**.log
+**Logs
+
+#Include SPT_Data
+!SPT_Data/
+
+#Include SPT_Data/Server
+!SPT_Data/Server/
+
+#Include SPT_Data/Launcher/Patches & /Locales
+!SPT_Data/Launcher/
+SPT_Data/Launcher/*
+!SPT_Data/Launcher/Patches/
+!SPT_Data/Launcher/Locales/
+
+#Include BepInEx core
+!BepInEx
+BepInEx/*
+!BepInEx/config
+!BepInEx/core
+!BepInEx/patchers
+
+
+# BepInEx Plugins 
+!BepInEx/plugins
+
+# Custom BepInNex mod exclusions
+BepInEx/plugins/DanW-SPTQuestingBots/log
+BepInEx/plugins/Fika.Dedicated.dll
+
+
+#Include User/Mods/
+!user
+user/*
+!user/mods
+
+# Custom user/mods exclusions
+user/mods/raid_review__0.2.0/data/*
+user/mods/fika-server/assets/scripts/*
+user/mods/fika-server/cache/*
+user/mods/DrakaiXYZ-LiveFleaPrices/config/*
+
+#Include other files
+!SPT.Launcher.exe
+!SPT.Server.exe
+!doorstop_config.ini
+!winhttp.dll
