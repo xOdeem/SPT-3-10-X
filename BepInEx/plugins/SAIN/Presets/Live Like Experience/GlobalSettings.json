@@ -12,13 +12,13 @@
     "BotsUseGrenades": true,
     "BotWeightEffects": true,
     "VanillaBots": {
-      "VanillaScavs": false,
-      "VanillaBosses": false,
-      "VanillaFollowers": false,
-      "VanillaGoons": false,
-      "VanillaBloodHounds": false,
-      "VanillaRogues": false,
-      "VanillaCultists": false
+      "VanillaScavs": true,
+      "VanillaBosses": true,
+      "VanillaFollowers": true,
+      "VanillaGoons": true,
+      "VanillaBloodHounds": true,
+      "VanillaRogues": true,
+      "VanillaCultists": true
     },
     "Performance": {
       "PerformanceMode": false,
