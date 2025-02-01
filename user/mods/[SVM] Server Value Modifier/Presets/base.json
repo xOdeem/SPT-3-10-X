@@ -74,8 +74,8 @@
     "NoFuelMult": 1,
     "ScavCasePrice": 1,
     "ScavCaseTime": 0.5,
-    "HideoutConstMult": 0.2,
-    "HideoutProdMult": 0.2,
+    "HideoutConstMult": 0.1,
+    "HideoutProdMult": 0.1,
     "WaterFilterRate": 66,
     "GPUBoostRate": 1,
     "AirFilterRate": 1,
@@ -252,9 +252,9 @@
       "MaxEnergy": 100
     },
     "CharXP": {
-      "ScavKill": 100,
+      "ScavKill": 150,
       "ScavHMult": 1.1,
-      "PMCKill": 200,
+      "PMCKill": 300,
       "PMCHMult": 1.2
     },
     "RaidMult": {
@@ -277,7 +277,7 @@
     "HydrationLoss": 1,
     "EnergyLoss": 1,
     "EnableHealth": false,
-    "SkillProgMult": 2,
+    "SkillProgMult": 10,
     "Health": {
       "LeftArm": 60,
       "RightArm": 60,
@@ -287,7 +287,7 @@
       "LeftLeg": 65,
       "RightLeg": 65
     },
-    "WeaponSkillMult": 10,
+    "WeaponSkillMult": 15,
     "EnablePlayer": true,
     "DiedHealth": {
       "Saveeffects": true,
