@@ -36,6 +36,7 @@ BepInEx/*
 # Custom BepInNex mod exclusions
 BepInEx/plugins/DanW-SPTQuestingBots/log
 BepInEx/plugins/Fika.Dedicated.dll
+BepInEx/plugins/acidphantasm-stattrack
 
 
 #Include User/Mods/
@@ -44,10 +45,11 @@ user/*
 !user/mods
 
 # Custom user/mods exclusions
-user/mods/raid_review__0.2.0/data/*
-user/mods/fika-server/assets/scripts/*
-user/mods/fika-server/cache/*
-user/mods/DrakaiXYZ-LiveFleaPrices/config/*
+user/mods/raid_review__0.2.0/data
+user/mods/fika-server/assets/scripts
+user/mods/fika-server/cache
+user/mods/DrakaiXYZ-LiveFleaPrices/config
+user/mods/bakahashi-pityloot/database
 
 #Include other files
 !SPT.Launcher.exe
