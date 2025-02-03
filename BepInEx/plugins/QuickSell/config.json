@@ -1,0 +1,11 @@
+{
+  "EnableQuickSellFlea": true,
+  "EnableQuickSellTraders": true,
+  "ShowConfirmationDialog": true,
+  "TradersBlacklist": [],
+  "AvgPricePercent": 100,
+  "IgnoreFleaCapacity": false,
+  "DisableKeybinds": false,
+  "Debug": false,
+  "EnableUIFixesIntegration": true
+}

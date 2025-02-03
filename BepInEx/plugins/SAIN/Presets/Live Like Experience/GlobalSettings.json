@@ -169,7 +169,7 @@
     "FasterCQBReactionsGlobal": true,
     "AimDownSightsAimTimeMultiplier": 0.8,
     "PMCSAimForHead": true,
-    "PMCAimForHeadChance": 33.0
+    "PMCAimForHeadChance": 20.0
   },
   "Hearing": {
     "RAIN_SOUND_COEF_OUTSIDE": 0.5,
@@ -255,7 +255,7 @@
     "BaseHearingDelayWithEnemy": 0.05,
     "BaseHearingDelayAtPeace": 0.15,
     "GunshotAudioMultiplier": 0.25,
-    "FootstepAudioMultiplier": 1.0,
+    "FootstepAudioMultiplier": 0.6,
     "SuppressorModifier": 0.15,
     "SubsonicModifier": 0.1,
     "HearingDistances": {
