@@ -1,0 +1,8 @@
+{
+    "name": "Bot Callsigns",
+    "version": "1.4.4",
+    "main": "src/mod.js",
+    "license": "MIT",
+    "author": "Helldiver, harmony",
+    "sptVersion": "3.10"
+}
