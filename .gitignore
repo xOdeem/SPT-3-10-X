@@ -45,7 +45,7 @@ user/*
 !user/mods
 
 # Custom user/mods exclusions
-user/mods/raid_review__0.2.0/data
+user/mods/raid_review__0.3.0/data
 user/mods/fika-server/assets/scripts
 user/mods/fika-server/cache
 user/mods/DrakaiXYZ-LiveFleaPrices/config
