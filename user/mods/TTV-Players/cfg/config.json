@@ -11,7 +11,7 @@
         "Timmy": 20,
         "Normal": 25
     },
-    "randomizePersonalitiesOnServerStart": true,
+    "randomizePersonalitiesOnServerStart": false,
     "SAINAutoUpdatePreset": true,
     "SAINProgressiveDifficulty": false,
     "fikaMaxCompatibility": false,

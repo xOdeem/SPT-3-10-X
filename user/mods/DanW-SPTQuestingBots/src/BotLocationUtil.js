@@ -133,49 +133,21 @@ class BotUtil {
         this.commonUtils.logInfo("Disabling custom Scav waves...");
         this.iLocationConfig.customWaves.normal = {};
     }
-    increaseBotCaps() {
-        if (!config_json_1.default.bot_spawns.bot_cap_adjustments.add_max_players_to_bot_cap) {
-            return;
-        }
-        const maxAddtlBots = config_json_1.default.bot_spawns.bot_cap_adjustments.max_additional_bots;
-        const maxTotalBots = config_json_1.default.bot_spawns.bot_cap_adjustments.max_total_bots;
-        for (const location in this.iBotConfig.maxBotCap) {
-            if (this.databaseTables.locations[location].base === undefined) {
-                continue;
-            }
-            const maxPlayers = this.databaseTables.locations[location].base.MaxPlayers;
-            this.iBotConfig.maxBotCap[location] = Math.min(this.iBotConfig.maxBotCap[location] + Math.min(maxPlayers, maxAddtlBots), maxTotalBots);
-            this.commonUtils.logInfo(`Changed bot cap for ${location} to: ${this.iBotConfig.maxBotCap[location]}`);
-        }
-        this.iBotConfig.maxBotCap.default = Math.min(this.iBotConfig.maxBotCap.default + maxAddtlBots, maxTotalBots);
-        this.commonUtils.logInfo(`Changed default bot cap to: ${this.iBotConfig.maxBotCap.default}`);
-    }
     useEFTBotCaps() {
-        if (!config_json_1.default.bot_spawns.advanced_eft_bot_count_management.use_EFT_bot_caps) {
-            return;
-        }
         for (const location in this.iBotConfig.maxBotCap) {
             if ((this.databaseTables.locations[location] === undefined) || (this.databaseTables.locations[location].base === undefined)) {
                 continue;
             }
             const originalSPTCap = this.iBotConfig.maxBotCap[location];
             const eftCap = this.databaseTables.locations[location].base.BotMax;
-            if (!config_json_1.default.bot_spawns.advanced_eft_bot_count_management.only_decrease_bot_caps || (originalSPTCap > eftCap)) {
+            const shouldChangeBotCap = (originalSPTCap > eftCap) || !config_json_1.default.bot_spawns.bot_cap_adjustments.only_decrease_bot_caps;
+            if (config_json_1.default.bot_spawns.bot_cap_adjustments.use_EFT_bot_caps && shouldChangeBotCap) {
                 this.iBotConfig.maxBotCap[location] = eftCap;
             }
-            const fixedAdjustment = config_json_1.default.bot_spawns.advanced_eft_bot_count_management.bot_cap_adjustments[location];
+            const fixedAdjustment = config_json_1.default.bot_spawns.bot_cap_adjustments.map_specific_adjustments[location];
             this.iBotConfig.maxBotCap[location] += fixedAdjustment;
             const newCap = this.iBotConfig.maxBotCap[location];
             this.commonUtils.logInfo(`Updated bot cap for ${location} to ${newCap} (Original SPT: ${originalSPTCap}, EFT: ${eftCap}, fixed adjustment: ${fixedAdjustment})`);
-        }
-    }
-    modifyNonWaveBotSpawnSettings() {
-        this.commonUtils.logInfo("Updating BotSpawnPeriodCheck for all maps...");
-        for (const location in this.iBotConfig.maxBotCap) {
-            if ((this.databaseTables.locations[location] === undefined) || (this.databaseTables.locations[location].base === undefined)) {
-                continue;
-            }
-            this.databaseTables.locations[location].base.BotSpawnPeriodCheck *= config_json_1.default.bot_spawns.non_wave_bot_spawn_period_factor;
         }
     }
 }
