@@ -63,6 +63,7 @@
 		},
 		"min_time_between_switching_objectives": 5,
 		"default_wait_time_after_objective_completion": 5,
+		"update_bot_zone_after_stopping": true,
 		"wait_time_before_planting": 1,
 		"quest_generation": {
 			"navmesh_search_distance_item": 1.5,
@@ -212,7 +213,7 @@
 			"airdrop_bot_interest_time": 420,
 			"elimination_quest_search_time": 60,
 			"eft_quests": {
-				"desirability": 60,
+				"desirability": 50,
 				"max_bots_per_quest": 3,
 				"chance_of_having_keys": 50,
 				"match_looting_behavior_distance": 5,
@@ -241,7 +242,7 @@
 				"max_bots_per_quest": 30
 			},
 			"boss_hunter": {
-				"desirability": 40,
+				"desirability": 30,
 				"min_level": 15,
 				"max_raid_ET": 300,
 				"min_distance": 50,
@@ -260,33 +261,28 @@
 		"spawn_retry_time": 10,
 		"delay_game_start_until_bot_gen_finishes": true,
 		"spawn_initial_bosses_first": false,
-		"non_wave_bot_spawn_period_factor": 3,
-		"advanced_eft_bot_count_management": {
-			"enabled": true,
+		"eft_new_spawn_system_adjustments" : {
+			"non_wave_retry_delay_after_blocked": 180,
+			"scav_spawn_rate_time_window": 300
+		},
+		"bot_cap_adjustments": {
 			"use_EFT_bot_caps": true,
 			"only_decrease_bot_caps": true,
-			"bot_cap_adjustments": {
+			"map_specific_adjustments": {
 				"default": 0,
 				"factory4_day": 0,
 				"factory4_night": 0,
 				"bigmap": 0,
 				"woods": 0,
 				"shoreline": 0,
-				"lighthouse": 4,
+				"lighthouse": 0,
 				"rezervbase": 0,
 				"interchange": 0,
 				"laboratory": 0,
-				"tarkovstreets": -4,
+				"tarkovstreets": 0,
 				"sandbox": 0,
 				"sandbox_high": 0
 			}
-		},
-		"bot_cap_adjustments" : {
-			"enabled": false,
-			"min_other_bots_allowed_to_spawn": 2,
-			"add_max_players_to_bot_cap": true,
-			"max_additional_bots": 5,
-			"max_total_bots": 26
 		},
 		"limit_initial_boss_spawns" : {
 			"enabled": true,
@@ -332,17 +328,17 @@
 				[1, 1]
 			],
 			"bots_per_group_distribution" : [
-				[0.40, 1],
-				[0.80, 2],
-				[0.94, 3],
-				[0.98, 4],
-				[1.00, 5]
+				[1, 40],
+				[2, 30],
+				[3, 22],
+				[4, 5],
+				[5, 3]
 			],
 			"bot_difficulty_as_online" : [
-				[0.00, 0],
-				[0.50, 1],
-				[0.90, 2],
-				[1.00, 3]
+				[0, 25],
+				[1, 50],
+				[2, 20],
+				[3, 5]
 			]
 		},
 		"player_scavs": {
@@ -354,17 +350,17 @@
 			"fraction_of_max_players": 1.5,
 			"time_randomness": 10,
 			"bots_per_group_distribution" : [
-				[0.80, 1],
-				[0.90, 2],
-				[0.96, 3],
-				[0.99, 4],
-				[1.00, 5]
+				[1, 75],
+				[2, 16],
+				[3, 5],
+				[4, 3],
+				[5, 1]
 			],
 			"bot_difficulty_as_online" : [
-				[0.00, 0],
-				[0.60, 1],
-				[0.95, 2],
-				[1.00, 3]
+				[0, 33],
+				[1, 65],
+				[2, 10],
+				[3, 2]
 			]
 		}
 	},

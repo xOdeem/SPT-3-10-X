@@ -63,23 +63,6 @@ class QuestingBots implements IPreSptLoadMod, IPostSptLoadMod, IPostDBLoadMod
         const staticRouterModService = container.resolve<StaticRouterModService>("StaticRouterModService");
         const dynamicRouterModService = container.resolve<DynamicRouterModService>("DynamicRouterModService");
 		
-        // Cache and adjust the PMC conversion chances
-        staticRouterModService.registerStaticRouter(`StaticRaidConfiguration${modName}`,
-            [{
-                url: "/client/game/start",
-                // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-                action: async (url: string, info: any, sessionId: string, output: string) => 
-                {
-                    if (modConfig.bot_spawns.enabled)
-                    {
-                        this.pmcConversionUtil.adjustAllPmcConversionChances(0, false);
-                    }
-
-                    return output;
-                }
-            }], "aki"
-        );
-
         // Get config.json settings for the bepinex plugin
         staticRouterModService.registerStaticRouter(`StaticGetConfig${modName}`,
             [{
@@ -226,6 +209,12 @@ class QuestingBots implements IPreSptLoadMod, IPostSptLoadMod, IPostDBLoadMod
             modConfig.enabled = false;
             return;
         }
+
+        if (!this.areArraysValid())
+        {
+            modConfig.enabled = false;
+            return;
+        }
     }
 	
     public postSptLoad(container: DependencyContainer): void
@@ -277,6 +266,9 @@ class QuestingBots implements IPreSptLoadMod, IPostSptLoadMod, IPostDBLoadMod
         // Disable all of the extra Scavs that spawn into Factory
         this.botUtil.disableCustomScavWaves();
 
+        // Use EFT's bot caps instead of SPT's
+        this.botUtil.useEFTBotCaps();
+
         // If Rogues don't spawn immediately, PMC spawns will be significantly delayed
         if (modConfig.bot_spawns.limit_initial_boss_spawns.disable_rogue_delay)
         {
@@ -284,18 +276,6 @@ class QuestingBots implements IPreSptLoadMod, IPostSptLoadMod, IPostDBLoadMod
             this.iLocationConfig.rogueLighthouseSpawnTimeSettings.waitTimeSeconds = -1;
         }
 
-        if (modConfig.bot_spawns.advanced_eft_bot_count_management.enabled)
-        {
-            this.commonUtils.logInfo("Enabling advanced_eft_bot_count_management will instruct EFT to ignore this mod's PMC's and PScavs when spawning more bots.");
-            this.botUtil.useEFTBotCaps();
-            this.botUtil.modifyNonWaveBotSpawnSettings();
-        }
-
-        if (modConfig.bot_spawns.bot_cap_adjustments.enabled)
-        {
-            this.botUtil.increaseBotCaps();
-        }
-        
         this.commonUtils.logInfo("Configuring game for bot spawning...done.");
     }
 
@@ -345,6 +325,75 @@ class QuestingBots implements IPreSptLoadMod, IPostSptLoadMod, IPostDBLoadMod
             this.commonUtils.logError("Please remove BepInEx/plugins/SPTQuestingBots.dll from the previous version of this mod and restart the server, or it will NOT work correctly.");
         
             return false;
+        }
+
+        return true;
+    }
+
+    private areArraysValid(): boolean
+    {
+        if (!this.isChanceArrayValid(modConfig.questing.bot_quests.eft_quests.level_range, true))
+        {
+            this.commonUtils.logError("questing.bot_quests.eft_quests.level_range has invalid data. Mod disabled.")
+            return false;
+        }
+
+        if (!this.isChanceArrayValid(modConfig.bot_spawns.pmcs.fraction_of_max_players_vs_raidET, false))
+        {
+            this.commonUtils.logError("bot_spawns.pmcs.fraction_of_max_players_vs_raidET has invalid data. Mod disabled.")
+            return false;
+        }
+
+        if (!this.isChanceArrayValid(modConfig.bot_spawns.pmcs.bots_per_group_distribution, true))
+        {
+            this.commonUtils.logError("bot_spawns.pmcs.bots_per_group_distribution has invalid data. Mod disabled.")
+            return false;
+        }
+        if (!this.isChanceArrayValid(modConfig.bot_spawns.pmcs.bot_difficulty_as_online, true))
+        {
+            this.commonUtils.logError("bot_spawns.pmcs.bot_difficulty_as_online has invalid data. Mod disabled.")
+            return false;
+        }
+        if (!this.isChanceArrayValid(modConfig.bot_spawns.player_scavs.bots_per_group_distribution, true))
+        {
+            this.commonUtils.logError("bot_spawns.player_scavs.bots_per_group_distribution has invalid data. Mod disabled.")
+            return false;
+        }
+        if (!this.isChanceArrayValid(modConfig.bot_spawns.player_scavs.bot_difficulty_as_online, true))
+        {
+            this.commonUtils.logError("bot_spawns.player_scavs.bot_difficulty_as_online has invalid data. Mod disabled.")
+            return false;
+        }
+
+        if (!this.isChanceArrayValid(modConfig.adjust_pscav_chance.chance_vs_time_remaining_fraction, false))
+        {
+            this.commonUtils.logError("adjust_pscav_chance.chance_vs_time_remaining_fraction has invalid data. Mod disabled.")
+            return false;
+        }
+
+        return true;
+    }
+
+    private isChanceArrayValid(array: number[][], shouldLeftColumnBeIntegers: boolean): boolean
+    {
+        if (array.length === 0)
+        {
+            return false;
+        }
+
+        for (const row of array)
+        {
+            if (row.length !== 2)
+            {
+                return false;
+            }
+
+            if (shouldLeftColumnBeIntegers && !Number.isInteger(row[0]))
+            {
+                this.commonUtils.logError("Found a chance array with an invalid value in its left column. Please ensure you are not using an outdated version of config.json.");
+
+                return false;
+            }
         }
 
         return true;
