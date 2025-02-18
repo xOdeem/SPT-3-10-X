@@ -1,12 +1,12 @@
 {
   "Difficulty": {
-    "VisibleDistCoef": 1.0,
-    "GainSightCoef": 1.0,
-    "ScatteringCoef": 1.0,
+    "VisibleDistCoef": 1.33,
+    "GainSightCoef": 0.8,
+    "ScatteringCoef": 0.85,
     "HearingDistanceCoef": 1.0,
     "AggressionCoef": 1.0,
-    "PrecisionSpeedCoef": 1.0,
-    "AccuracySpeedCoef": 1.0
+    "PrecisionSpeedCoef": 0.8,
+    "AccuracySpeedCoef": 0.8
   },
   "General": {
     "BotsUseGrenades": true,
@@ -25,20 +25,20 @@
       "MaxBotsToCheckVisionPerFrame": 5.0
     },
     "AILimit": {
-      "LimitAIvsAIGlobal": false,
+      "LimitAIvsAIGlobal": true,
       "AILimitUpdateFrequency": 3.0,
       "AILimitRanges": {
         "Far": 150.0,
         "VeryFar": 250.0,
         "Narnia": 400.0
       },
-      "LimitAIvsAIVision": false,
+      "LimitAIvsAIVision": true,
       "MaxVisionRanges": {
         "Far": 200.0,
         "VeryFar": 100.0,
         "Narnia": 50.0
       },
-      "LimitAIvsAIHearing": false,
+      "LimitAIvsAIHearing": true,
       "MaxHearingRanges": {
         "Far": 100.0,
         "VeryFar": 60.0,
@@ -168,8 +168,8 @@
     "CenterMassVal": 0.3125,
     "FasterCQBReactionsGlobal": true,
     "AimDownSightsAimTimeMultiplier": 0.8,
-    "PMCSAimForHead": true,
-    "PMCAimForHeadChance": 20.0
+    "PMCSAimForHead": false,
+    "PMCAimForHeadChance": 33.0
   },
   "Hearing": {
     "RAIN_SOUND_COEF_OUTSIDE": 0.5,
@@ -406,7 +406,7 @@
       },
       "Movement": {
         "Description": "Scales vision speed based on the movement speed of their enemy. Faster movement = faster vision speed.",
-        "Enabled": false,
+        "Enabled": true,
         "MOVEMENT_VISION_MULTIPLIER": 0.5
       },
       "PartsVisibility": {
@@ -419,11 +419,11 @@
         "Description": "Adds additional vision speed reduction to targets in a bot's peripheral vision.Scales with the angle from their look direction.",
         "Enabled": true,
         "PERIPHERAL_VISION_START_ANGLE": 30.0,
-        "PERIPHERAL_VISION_MAX_REDUCTION_COEF": 1.5
+        "PERIPHERAL_VISION_MAX_REDUCTION_COEF": 2.0
       },
       "Pose": {
         "Description": "Scales vision speed based on the pose of their enemy. Only applies to Non-AI targets.",
-        "Enabled": false,
+        "Enabled": true,
         "PRONE_VISION_SPEED_COEF": 1.75,
         "DUCK_VISION_SPEED_COEF": 1.25
       },
@@ -469,7 +469,7 @@
       "NightVisionOffRatio": 0.66
     },
     "NotLooking": {
-      "NotLookingToggle": false,
+      "NotLookingToggle": true,
       "NotLookingTimeLimit": 4.0,
       "NotLookingAngle": 45.0,
       "NotLookingVisionSpeedModifier": 1.1,
@@ -635,7 +635,7 @@
   },
   "Shoot": {
     "ONLY_SEMIAUTO_TOGGLE": false,
-    "RecoilMultiplier": 1.0,
+    "RecoilMultiplier": 0.66,
     "AddRecoil": 5.0,
     "RECOIL_DECAY_COEF": 0.2,
     "RECOIL_BASELINE": 100.0,
