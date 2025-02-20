@@ -1,3 +1,27 @@
 {
-    "order": []
+  "order": [
+    "acidphantasm-3105TemporaryFixes",
+    "[SVM] Server Value Modifier",
+    "acidphantasm-bosseshavelegamedals",
+    "DanW-SPTQuestingBots",
+    "zzDrakiaXYZ-LiveFleaPrices",
+    "acidphantasm-refsptfriendlyquests",
+    "bakahashi-pityloot",
+    "BotCallsigns",
+    "bushtail-RandomSeasonRipoff",
+    "ChooChoo-TraderModding",
+    "cj-removetimegatefromquests",
+    "ExpandedTaskText",
+    "fika-server",
+    "IhanaMies-LootValueBackend",
+    "MoreCheckmarksBackend",
+    "rairaitheraichu-ammostats",
+    "schkuromi-fleafironly",
+    "Skwizzy-LootingBots-ServerMod",
+    "Szonszczyk-DefinitiveWeaponVariants",
+    "tyfon-uifixes",
+    "Virtual's Custom Quest Loader",
+    "zSolarint-SAIN-ServerMod",
+    "acidphantasm-progressivebotsystem"
+  ]
 }
