@@ -37,6 +37,8 @@ BepInEx/*
 BepInEx/plugins/DanW-SPTQuestingBots/log
 BepInEx/plugins/Fika.Dedicated.dll
 BepInEx/plugins/acidphantasm-stattrack
+BepInEx/plugins/HollywoodFX
+BepInEx/config/com.janky.hollywoodfx.cfg
 
 
 #Include User/Mods/
