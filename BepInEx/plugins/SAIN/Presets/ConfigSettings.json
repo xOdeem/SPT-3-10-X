@@ -1,5 +1,5 @@
 {
-  "AdvancedBotConfigs": true,
+  "AdvancedBotConfigs": false,
   "DevBotConfigs": false,
   "SelectedDefaultPreset": "none",
   "SelectedCustomPreset": "Default [Modified]",

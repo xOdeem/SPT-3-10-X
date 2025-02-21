@@ -12,33 +12,33 @@
     "BotsUseGrenades": true,
     "BotWeightEffects": true,
     "VanillaBots": {
-      "VanillaScavs": false,
-      "VanillaBosses": false,
-      "VanillaFollowers": false,
-      "VanillaGoons": false,
-      "VanillaBloodHounds": false,
-      "VanillaRogues": false,
-      "VanillaCultists": false
+      "VanillaScavs": true,
+      "VanillaBosses": true,
+      "VanillaFollowers": true,
+      "VanillaGoons": true,
+      "VanillaBloodHounds": true,
+      "VanillaRogues": true,
+      "VanillaCultists": true
     },
     "Performance": {
       "PerformanceMode": false,
       "MaxBotsToCheckVisionPerFrame": 5.0
     },
     "AILimit": {
-      "LimitAIvsAIGlobal": true,
+      "LimitAIvsAIGlobal": false,
       "AILimitUpdateFrequency": 3.0,
       "AILimitRanges": {
         "Far": 150.0,
         "VeryFar": 250.0,
         "Narnia": 400.0
       },
-      "LimitAIvsAIVision": true,
+      "LimitAIvsAIVision": false,
       "MaxVisionRanges": {
         "Far": 200.0,
         "VeryFar": 100.0,
         "Narnia": 50.0
       },
-      "LimitAIvsAIHearing": true,
+      "LimitAIvsAIHearing": false,
       "MaxHearingRanges": {
         "Far": 100.0,
         "VeryFar": 60.0,
@@ -147,7 +147,7 @@
       "DAMAGE_MIN_MOD": 0.2,
       "DAMAGE_MAX_MOD": 3.0
     },
-    "AimCenterMassGlobal": true,
+    "AimCenterMassGlobal": false,
     "EnemyVelocityMaxBuff": 1.2,
     "EnemyVelocityMaxDebuff": 0.8,
     "EnemySprintingScatterMulti": 0.66,
@@ -168,8 +168,8 @@
     "CenterMassVal": 0.3125,
     "FasterCQBReactionsGlobal": true,
     "AimDownSightsAimTimeMultiplier": 0.8,
-    "PMCSAimForHead": false,
-    "PMCAimForHeadChance": 33.0
+    "PMCSAimForHead": true,
+    "PMCAimForHeadChance": 5.0
   },
   "Hearing": {
     "RAIN_SOUND_COEF_OUTSIDE": 0.5,
