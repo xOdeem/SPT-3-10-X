@@ -761,7 +761,7 @@
     "FriendlyResponseFrequencyLimit": 1.0,
     "FriendlyResponseMinRandomDelay": 0.33,
     "FriendlyResponseMaxRandomDelay": 0.75,
-    "DisableBotTalkPatching": false
+    "DisableBotTalkPatching": true
   },
   "SquadTalk": {
     "_reportReloadingChance": 33.0,
